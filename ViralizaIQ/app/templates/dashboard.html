@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Dashboard</h1>
+<p>Welcome to your dashboard, {{ session.get('username', 'Guest') }}!</p>
+{% if session.get('access_token') %}
+    <p>Your Instagram account is connected.</p>
+{% else %}
+    <p>Please <a href="{{ url_for('instagram_login') }}">log in with Instagram</a>.</p>
+{% endif %}
+{% endblock %}
